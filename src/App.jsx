@@ -1,35 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import SearchInput from './components/SearchInput.jsx'
+import CountryList from './components/CountryList.jsx'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchText, setSearchText] = useState("")
+  const [favorites, setFavorites] = useState([]) // aquí se guardan todos
+
+  function toggleFavorite(country) {
+    const alreadyIn = favorites.some(fav => fav.cca3 === country.cca3)
+    if (alreadyIn) {
+      setFavorites(favorites.filter(fav => fav.cca3 !== country.cca3))
+    } else {
+      setFavorites([...favorites, country])
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div> 
+        <h3 style={{fontWeight: "bold"}}>COUNTRY SEARCH</h3>    
+        <SearchInput 
+          country={searchText} 
+          function={(e) => setSearchText(e.target.value)}
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+      <CountryList 
+        countryName={searchText}
+        favorites={favorites}
+        onToggleFavorite={toggleFavorite}
+      />
     </>
   )
 }
-
 export default App
