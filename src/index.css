@@ -1,166 +1,66 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  color: #242d39;
+  background: #f1f1f1;
   font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 1.5;
+  --blue: #2e96f0;
+  --ink: #213547;
+  --muted: #727a83;
+  --line: #dadde0;
 }
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+* {
+  box-sizing: border-box;
 }
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
-  min-height: 100vh;
-  background-color: #f1f1f1;
-  overflow-x: hidden;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+button,
+input,
+select {
+  font: inherit;
 }
-
+button,
+a {
+  touch-action: manipulation;
+}
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+a {
+  color: inherit;
+  text-decoration: none;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid #2e96f0;
+  outline-offset: 4px;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+h1,
+h2,
+h3,
+p {
+  margin: 0;
 }
-
-
-.icon{
-  width: 20px;
-  height: 20px;
-  margin: 5px 10px;
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
 }
-.searchInput{
-  border: solid 2px #33333356;
-  border-radius: 20px;
-  padding-right: 5px;
+button {
+  color: inherit;
 }
-.inputActivo{
-  border: solid 2px #3333;
-  border-radius: 20px;
-  padding-right: 5px;
-  box-shadow: 0 0 8px #2e96f0;
+button:disabled {
+  cursor: default;
 }
-
-
-
-.container{
-  width: 60vw;
-  background-color: #fff;
-  border: solid 1px #3333;
-  height: 40vh;
-  margin: 20px;
-  border-radius: 30px;
-  box-shadow: 0 0 10px #aaaaaa;
-  display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    overflow-y: scroll;
-    align-items: start;
-    justify-content: center;
-    padding-top: 20px;
-    scrollbar-width: none;
-
-
-
-
+.wrap {
+  max-width: 1220px;
+  width: calc(100% - 96px);
+  margin: auto;
 }
-
-.container::-webkit-scrollbar { 
-    display: none;  /* Older Safari and Chromium */
-}
-
-.cards{
-  width: 380px;
-  min-width: 400px;
-  height: 80px;
-  display: flex;
-  padding: 10px 15px;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  gap: 20px;
-  margin: 5px;
-  border: solid 1px #3333;
-    border-radius: 20px;
-
-
-}
-
-.countryName{
-  font-size: 12px;
-}
-.contryCapital{
-  font-size: 10px;
-}
-
-.flag{
-  width: 70px;
-  height: 90%;
-  border-radius: 10px;
-  border: solid 1px #3333; 
-}
-
-.detail-card{
-    width: 60vw;
-  background-color: #fff;
-  border: solid 1px #3333;
-  height: 30vh;
-  margin: 20px;
-  border-radius: 30px;
-  box-shadow: 0 0 10px #aaaaaa;
-  display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    overflow-y: scroll;
-    align-items: start;
-    justify-content: space-between;
-    padding: 40px;
-    scrollbar-width: none;
-}
-

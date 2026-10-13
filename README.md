@@ -1,12 +1,36 @@
-# React + Vite
+# Country Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive atlas built with React and Vite, preserving the original gray/white palette, blue accents, and yellow favorites.
 
-Currently, two official plugins are available:
+[Live demo](https://franxis12.github.io/country_search/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![Desktop preview](docs/preview.jpg)
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Explore 250 countries and territories without an API key.
+- Search country names or capitals, including accent-insensitive matches.
+- Filter by region, view details, and load more results.
+- Save favorites locally; saved places survive a reload.
+- Keyboard-accessible country dialogs, loading/error/empty states, and mobile layouts.
+
+## Data
+
+The legacy REST Countries v3.1 endpoint was retired. This demo uses a bundled, reduced-field copy of the open-source [REST Countries dataset](https://github.com/restcountries/restcountries/blob/bfadee4f951682c29970e53677707bc558e80b74/src/main/resources/countriesV3.1.json), retrieved October 12, 2026. Population and geographic figures are reference data, not live estimates. Countries and dependent territories are both included.
+
+The derived JSON remains under MPL-2.0; see [the data notice](public/data/NOTICE.md) and [license](public/data/LICENSE). Flag images load from the original FlagCDN URLs. To refresh the data, replace the JSON from the upstream source, retain the selected fields and attribution, then rebuild.
+
+## Development
+
+```sh
+npm ci
+npm run dev
+npm run build
+npm run lint
+```
+
+Vite uses `/country_search/` as its base path. `npm run deploy` builds and updates the existing `gh-pages` publication branch. Development changes belong on `main`.
+
+## Validation
+
+Production build and ESLint pass. Browser checks cover search, region filters, country details, persistent favorites, empty results, and responsive layouts.
